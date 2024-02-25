@@ -3,9 +3,10 @@ backend:
   phases:
     build:
       commands:
-        - nvm install 18.16.0 # Attempt to use a specific Node.js version
+        - nvm install 18.16.0
         - nvm use 18.16.0
-        - yarn install # Changed from npm ci to yarn install
+        - npm install -g yarn # Explicitly install Yarn
+        - yarn install
         - npx amplify pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
